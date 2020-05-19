@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Monoton" rel="stylesheet">
+	<style type="text/css">
+		*{margin: 0;
+		padding: 0;
+	font-family: 'Fjalla One', sans-serif;}
+	.slider{
+		
+		margin: auto;
+		overflow: hidden;
+		
+	}
+.slider ul{
+	
+	display:flex;
+padding: 0;
+width: 400%;
+animation: cambio 100s infinite;
+animation-direction: alternate;
+
+}
+.slider li {
+list-style: none;
+width: 100%;
+
+}
+.slider img{
+	width: 100%;
+	height: 100%;
+	
+}
+@keyframes cambio {
+	0%{margin-left: 0;}
+	20%{margin-left: 0;}
+
+	30%{margin-left:-100%;}
+	45%{margin-left: -100%;}
+
+	55%{margin-left:-200%;}
+	70%{margin-left: -200%;}
+
+	80%{margin-left:-300%;}
+	100%{margin-left: -300%;}
+}
+
+#d{
+	position: absolute;
+	margin-top: 100px;
+	 font-size :80px;
+	 color:white;
+	 margin-left: 410px;
+	
+}
+#s{position: absolute;
+	margin-top: 500px;
+	font-size: 70px;
+	color:white;
+	margin-left: 410px;
+
+}
+#h {
+	position: absolute;
+	margin-top: 250px;
+	font-size: 150px;
+	color:white;
+	margin-left: 500px;
+}
+#cerrar{
+	position: absolute;
+	margin-left: 600px;
+	margin-top: -250px;
+	text-decoration: none;
+	color:#fff;
+	font-size: 50px;
+
+}
+	</style>
+	<title>has entrado</title>
+</head>
+<body>
+	<div id="d"></div>
+	<div id="s"></div>
+	<div id="h"></div>
+	<div class="slider">
+		<ul>
+			<li><img src="img/1.jpg"></li>
+			<li><img src ="img/2.jpg"></li>
+			<li><img src ="img/3.jpg"></li>
+			<li><img src ="img/4.jpg"></li>
+		</ul>
+	</div>
+
+	<a href="#" id="cerrar">cerrar sesion</a>
+<script type="text/javascript">
+	 var div = document.getElementById("d")
+	 var obtenido = sessionStorage.getItem("get")
+	 var final = document.querySelector("#cerrar")
+
+	 
+	function obtener (){
+		
+		div.innerHTML = "Bienvenido " + obtenido + " a fleept" ; 
+		return (obtenido == null || obtenido == undefined)? window.location.href = "iniciar.html":false
+
+	}
+	function fin (){
+		sessionStorage.clear()
+		window.location.href = "iniciar.html"
+
+	}
+	final.onclick = fin;
+	window.onload = obtener;
+</script>
+
+<script>
+	
+	var date  = document.querySelector("#s")
+	var hora = document.querySelector("#h")
+
+	function fecha () {
+
+		var g = new Date()
+		var d = g.getDate()
+		var k = g.getDay()
+		var mes = g.getMonth();
+		switch(k) 
+{
+case 0:
+var s = "Domingo";
+break;
+case 5:
+var s = "Viernes";
+break;
+case 6:
+var s = "Sabado";
+break;
+case 4:
+var s = "Jueves";
+break;
+case 3: 
+var s = "Miercoles";
+break;
+case 2:
+var s = "Martes"
+break;
+case 1:
+var s = "Lunes"
+break
+}
+
+switch(mes) 
+{
+case 0:
+var n = "Enero";
+break;
+case 1:
+var n = "Febrero";
+break;
+case 2:
+var n = "Marzo";
+break;
+case 3:
+var n = "Abril";
+break;
+case 4: 
+var n = "Mayo";
+break;
+case 5:
+var n = "Junio"
+break;
+case 6:
+var n = "Julio"
+break;
+case 7:
+var n = "Agosto";
+break;
+case 8:
+var n = "Septiembre";
+break;
+case 9:
+var n = "Octubre";
+break;
+case 10: 
+var n = "Novimbre";
+break;
+case 11:
+var n = "Diciembre"
+break;
+
+}
+
+	var g = new Date()
+	var m = g.getMinutes();
+	var e = g.getSeconds();
+	var h = g.getHours();
+	 var m =lol(m)
+	var e = lol(e)
+	var u = hr (h)
+	var q = gy (h)
+	
+		hora.innerHTML = q + ":"+ m +":"+e +" "+ u; 
+		date.innerHTML =  s + " , " + d +" de "+ n;
+		setTimeout(function(){fecha()},1000 )
+		
+
+		
+	}
+	fecha()
+function lol (i){
+		if (i < 10) {
+			i = "0" + i
+		}
+		return i;
+	}
+
+function hr (r){
+	if (r < 12) {
+		r =  "AM"
+	}
+	return r;
+}
+
+function gy(k) {
+	if (k >= 12) {
+		k - 12;
+		
+	}
+	return k;
+}
+
+
+/*
+var g = new Date()
+	var m = g.getMinutes();
+	var s = g.getSeconds();
+	var h = g.getHours();
+	 var m =lol(m)
+	var s = lol(s)
+		date.innerHTML = h + ":"+ m +":"+s; 
+ 
+		setTimeout(function(){fecha()},1000) 
+
+	
+	
+	fecha()
+	function lol (i){
+		if (i < 10) {
+			i = "0" + i
+		}
+		return i;
+	}
+*/
+
+
+
+</script>
+
+</body>
+</html>
