@@ -102,12 +102,12 @@ width: 100%;
 	function obtener (){
 		
 		div.innerHTML = "Bienvenido " + obtenido + " a fleept" ; 
-		return (obtenido == null || obtenido == undefined)? window.location.href = "iniciar.html":false
+		return (obtenido == null || obtenido == undefined)? window.location.href = "index.html":false
 
 	}
 	function fin (){
 		sessionStorage.clear()
-		window.location.href = "iniciar.html"
+		window.location.href = "index.html"
 
 	}
 	final.onclick = fin;
